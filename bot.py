@@ -87,10 +87,6 @@ async def on_message(message):
     # Ignores if a command is being executed by a bot or by the bot itself
     if message.author == bot.user or message.author.bot:
         return
-    # Ignores if a command is being executed by a blacklisted user
-
-    if config["blacklist"] is not None and message.author.id in config["blacklist"]:
-        return
     await bot.process_commands(message)
 
 

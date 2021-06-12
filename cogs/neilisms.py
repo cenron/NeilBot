@@ -33,17 +33,16 @@ class Neilisms(commands.Cog, name="neilisms"):
         asset_root = config['asset_dir']
         booty_img_dir = os.path.join(asset_root, 'img/booty')
         # Get the channel we want to limit this command to.
-
-        channel = self.bot.get_channel(config['booty_cmd_channel_id'])
+        channel = discord.utils.get(context.guild.channels, name=config['booty_cmd_channel'])
 
         # Make sure the directory we are pointing to is a actually a valid directory.
-        if os.path.isdir(booty_img_dir):
+        if os.path.isdir(booty_img_dir) and channel is not None:
             # Now we need to get all the images in the booty directory.
             booty_list = os.listdir(booty_img_dir);
 
             # We keep generating random numbers
             while True:
-                image_name = booty_list[random.randrange(len(booty_list) - 1)]
+                image_name = random.choice(booty_list)
                 file_ext = pathlib.Path(image_name).suffix
                 if file_ext in self.supported_image_types:
                     await channel.send(file=discord.File(os.path.join(booty_img_dir, image_name)))
