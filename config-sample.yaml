@@ -1,11 +1,10 @@
-bot_prefix: "$"
-token: "TOKEN"
-application_id: "1337"
+bot_prefix: "neil "
+token: "API_TOKEN"
+application_id: "APPLICATION_ID"
+asset_dir: "./assets"
 owners:
   - 200062707540557825
 blacklist:
-  - 123456789
-  - 987654321
 main_color: 0xD75BF4
 error: 0xE02B2B
 success: 0x42F56C
