@@ -32,6 +32,9 @@ class Neilisms(commands.Cog, name="neilisms"):
         # Get our asset directory from the config.
         asset_root = config['asset_dir']
         booty_img_dir = os.path.join(asset_root, 'img/booty')
+        # Get the channel we want to limit this command to.
+
+        channel = self.bot.get_channel(config['booty_cmd_channel_id'])
 
         # Make sure the directory we are pointing to is a actually a valid directory.
         if os.path.isdir(booty_img_dir):
@@ -43,7 +46,7 @@ class Neilisms(commands.Cog, name="neilisms"):
                 image_name = booty_list[random.randrange(len(booty_list) - 1)]
                 file_ext = pathlib.Path(image_name).suffix
                 if file_ext in self.supported_image_types:
-                    await context.send(file=discord.File(os.path.join(booty_img_dir, image_name)))
+                    await channel.send(file=discord.File(os.path.join(booty_img_dir, image_name)))
                     break
         else:
             embed = discord.Embed(

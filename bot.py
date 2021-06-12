@@ -48,7 +48,6 @@ intents = discord.Intents.default()
 
 bot = Bot(command_prefix=config["bot_prefix"], intents=intents)
 
-
 # The code in this even is executed when the bot is ready
 @bot.event
 async def on_ready():
