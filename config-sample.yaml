@@ -2,6 +2,7 @@ bot_prefix: "neil "
 token: "API_TOKEN"
 application_id: "APPLICATION_ID"
 asset_dir: "./assets"
+booty_cmd_channel_id: 697214870520856709
 owners:
   - 200062707540557825
 blacklist:
